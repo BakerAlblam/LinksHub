@@ -9,7 +9,7 @@ const Page = () => {
   const user = useUser();
   const isSignedIn = user?.isSignedIn;
   const username = user?.user?.username;
-  const cleanedUsername = username?.replace(/\s/g, "") || "";
+  const cleanedUsername = username?.replace(/\s/g, "") ?? "";
   const encodedUsername = encodeURIComponent(cleanedUsername);
   const decodedUsername = decodeURIComponent(encodedUsername);
   const authId = user?.user?.id;
@@ -22,7 +22,7 @@ const Page = () => {
       router.push(`/links/${decodedUsername}`);
       setIsLoading(false);
     }
-  }, [encodedUsername]);
+  }, [decodedUsername, encodedUsername, router]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +40,7 @@ const Page = () => {
       }
     };
 
-    fetchData();
+    void fetchData();
   }, [isSignedIn, authId, username, email]);
 
   return (

@@ -1,10 +1,16 @@
 import { eq } from "drizzle-orm";
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { db } from "~/server/db";
 import { users } from "~/server/db/schema";
 
+type UserReq = {
+  username: string;
+  email: string;
+  authId: string;
+};
+
 export async function POST(NextRequest: NextRequest) {
-  const { username, email, authId } = await NextRequest.json();
+  const { username, email, authId } = (await NextRequest.json()) as UserReq;
 
   if (!username || !email || !authId) {
     return NextResponse.json({ message: "Invalid input data" });
