@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "~/server/db";
 import { users } from "~/server/db/schema";
 
-export async function POST(request: NextRequest) {
-  const { username, email, authId } = await request.json();
+export async function POST(NextRequest: NextRequest) {
+  const { username, email, authId } = await NextRequest.json();
 
   if (!username || !email || !authId) {
     return NextResponse.json({ message: "Invalid input data" });
