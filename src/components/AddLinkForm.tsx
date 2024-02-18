@@ -4,7 +4,6 @@ import { Plus } from "lucide-react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -17,6 +16,7 @@ import axios from "axios";
 import { type FieldValues, useForm } from "react-hook-form";
 import { useUser } from "@clerk/nextjs";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { toast } from "./ui/use-toast";
 
 type FormData = {
   userId: number;
@@ -51,6 +51,9 @@ const AddLinkForm = () => {
       });
       console.log(res);
       if (res.status === 201) {
+        toast({
+          title: "Link added",
+        });
         reset();
       }
     } catch (error) {
@@ -68,10 +71,7 @@ const AddLinkForm = () => {
         </DialogTrigger>
         <DialogContent className="text-black sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Share link</DialogTitle>
-            <DialogDescription>
-              Anyone who has this link will be able to view this.
-            </DialogDescription>
+            <DialogTitle>Add link</DialogTitle>
           </DialogHeader>
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -103,7 +103,12 @@ const AddLinkForm = () => {
                 </div>
               </div>
               <DialogFooter className="sm:justify-start">
-                <Button type="submit" variant="outline" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  variant="outline"
+                  disabled={isSubmitting}
+                  className="mt-3"
+                >
                   Add
                 </Button>
               </DialogFooter>
