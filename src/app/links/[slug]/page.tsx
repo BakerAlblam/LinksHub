@@ -24,19 +24,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h1 className="items-end text-3xl font-extrabold tracking-tight sm:text-[3rem]">
           <span className="text-[hsl(280,100%,70%)]">@{user?.username}</span>
         </h1>
-        <div className="flex w-full flex-col space-y-4  px-12">
-          <Link
-            className="block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white"
-            href="#"
-          >
-            x profile
-          </Link>
-          <Link
-            className="block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white"
-            href="#"
-          >
-            x profile
-          </Link>
+        <div className="flex w-full flex-col space-y-6 px-12">
+          {userLinks?.map((link) => (
+            <Link
+              key={link?.id}
+              className="block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
+              href={`${link?.content}`}
+              target="blank"
+            >
+              {link?.link}
+            </Link>
+          ))}
         </div>
       </div>
     </main>
