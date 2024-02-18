@@ -7,7 +7,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     where: (user, { eq }) => eq(user.username, params.slug),
   });
 
-  const userId = user?.authId as string;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+  const userId = user?.authId!;
 
   const userLinks = await db.query.links.findMany({
     where: (link, { eq }) => eq(link.userId, userId),
