@@ -4,12 +4,10 @@
 import { sql } from "drizzle-orm";
 import {
   bigint,
-  index,
   int,
   mysqlTableCreator,
   text,
   timestamp,
-  varchar,
 } from "drizzle-orm/mysql-core";
 
 /**
@@ -34,7 +32,9 @@ export const users = createTable("users", {
 
 export const links = createTable("links", {
   id: int("id").primaryKey().autoincrement(),
-  userId: int("user_id").notNull(),
+  userId: text("user_id"),
+  link: text("link"),
+  username: text("username"),
   content: text("content"),
   createdAt: timestamp("created_at")
     .default(sql`CURRENT_TIMESTAMP`)

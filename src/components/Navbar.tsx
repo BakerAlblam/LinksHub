@@ -9,24 +9,6 @@ export function Navbar() {
   const isSignedIn = user.isSignedIn;
   console.log(user?.user);
 
-  //   useEffect(() => {
-  //     const sendData = async () => {
-  //       if (authId) {
-  //         try {
-  //           await axios.post("/api/users", {
-  //             name,
-  //             email,
-  //             authId,
-  //           });
-  //         } catch (error) {
-  //           console.error("Error sending data:", error);
-  //         }
-  //       }
-  //     };
-
-  //     sendData();
-  //   }, [authId, email]);
-
   return (
     <header className="flex items-center justify-between border-b px-4 py-2 md:px-8 lg:px-10 xl:px-12">
       <Link className="flex items-center" href="/">
