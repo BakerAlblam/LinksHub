@@ -2,12 +2,6 @@ import "~/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Navbar } from "~/components/Navbar";
 import { Toaster } from "~/components/ui/toaster";
-import { Inter } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
 
 import { Roboto } from "next/font/google";
 

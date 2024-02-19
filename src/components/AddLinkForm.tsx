@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Plus } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -64,9 +63,7 @@ const AddLinkForm = () => {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="secondary">
-            Add Link <Plus className="ml-1" />
-          </Button>
+          <Button variant="secondary">Add Link</Button>
         </DialogTrigger>
         <DialogContent className="text-black sm:max-w-md">
           <DialogHeader>

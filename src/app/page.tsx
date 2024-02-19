@@ -4,8 +4,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen w-full flex-col items-center bg-gradient-to-b from-[#21014f] to-[#1a1b2e] text-white">
-      <div className="container mt-8 flex  flex-col items-center gap-12 px-4 py-16">
+    <main className="flex w-full flex-col items-center bg-gradient-to-b from-[#21014f] to-[#1a1b2e] text-white">
+      <div className="container flex  h-fit flex-col items-center gap-12 px-4 py-20 md:py-12 lg:py-14 xl:py-12">
         <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
           Links<span className="text-[hsl(280,100%,70%)]">Hub</span>
         </h1>
@@ -22,8 +22,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        <hr className="h-1 w-full bg-white" />
-        <Avatar className="mt-4 h-20 w-20">
+        <hr className="my-4 h-1 w-full bg-white" />
+        <Avatar className=" h-20 w-20">
           <AvatarImage src={``} className="object-cover" />
           <AvatarFallback className="bg-black">{""}</AvatarFallback>
         </Avatar>
@@ -34,24 +34,25 @@ export default function HomePage() {
         <div className="flex w-full max-w-[850px] flex-col space-y-6 px-12">
           <Link
             className="glassmorphism block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
-            href={`twitter.com`}
+            href={`https://twitter.com/`}
             target="blank"
           >
             Twitter
           </Link>
           <Link
             className="glassmorphism block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
-            href={`twitter.com`}
-            target="blank"
+            href="https://snapchat.com"
+            target="_blank"
           >
-            Twitter
+            Snapchat
           </Link>
+
           <Link
             className="glassmorphism block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
-            href={`twitter.com`}
+            href={`https://www.youtube.com/`}
             target="blank"
           >
-            Twitter
+            YouTube
           </Link>
         </div>
       </div>
