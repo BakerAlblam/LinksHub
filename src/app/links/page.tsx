@@ -1,8 +1,9 @@
 "use client";
 import { useUser } from "@clerk/nextjs";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Loading from "~/components/Loading";
 
 const Page = () => {
   const router = useRouter();
@@ -14,13 +15,11 @@ const Page = () => {
   const decodedUsername = decodeURIComponent(encodedUsername);
   const authId = user?.user?.id;
   const email = user?.user?.primaryEmailAddress?.emailAddress;
-
-  const [isLoading, setIsLoading] = useState(true);
+  const avatar = user?.user?.imageUrl;
 
   useEffect(() => {
     if (encodedUsername != null) {
       router.push(`/links/${decodedUsername}`);
-      setIsLoading(false);
     }
   }, [decodedUsername, encodedUsername, router]);
 
@@ -28,12 +27,12 @@ const Page = () => {
     const fetchData = async () => {
       try {
         if (isSignedIn) {
-          const res = await axios.post("/api/users", {
+          await axios.post("/api/users", {
             authId,
             username,
             email,
+            avatar,
           });
-          console.log(res);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -41,15 +40,11 @@ const Page = () => {
     };
 
     void fetchData();
-  }, [isSignedIn, authId, username, email]);
+  }, [isSignedIn, authId, username, email, avatar]);
 
   return (
-    <div>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <h1 className="text-black">{decodedUsername}</h1>
-      )}
+    <div className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#21014f] to-[#1a1b2e] text-white">
+      <Loading />
     </div>
   );
 };

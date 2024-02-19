@@ -8,6 +8,7 @@ import {
   mysqlTableCreator,
   text,
   timestamp,
+  varchar,
 } from "drizzle-orm/mysql-core";
 
 /**
@@ -23,6 +24,7 @@ export const users = createTable("users", {
   username: text("username"),
   email: text("email"),
   authId: text("authId"),
+  avatar: varchar("avatar", { length: 256 }),
   createdAt: timestamp("created_at")
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),

@@ -28,7 +28,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h1 className="items-end text-3xl font-extrabold tracking-tight sm:text-[3rem]">
           <span className="text-[hsl(280,100%,70%)]">@{user?.username}</span>
         </h1>
-        <AddLinkForm />
+
         <div className="flex w-full flex-col space-y-6 px-12">
           {userLinks?.map((link) => (
             <Link

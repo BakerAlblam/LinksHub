@@ -15,8 +15,8 @@ import { Label } from "~/components/ui/label";
 import axios from "axios";
 import { type FieldValues, useForm } from "react-hook-form";
 import { useUser } from "@clerk/nextjs";
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { toast } from "./ui/use-toast";
+import { useRouter } from "next/navigation";
 
 type FormData = {
   userId: number;
@@ -26,6 +26,7 @@ type FormData = {
 };
 
 const AddLinkForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -35,10 +36,8 @@ const AddLinkForm = () => {
 
   const user = useUser();
   const data = user;
-  console.log(data);
   const userId = data?.user?.id;
   const username = data?.user?.username;
-  const userImg = data?.user?.imageUrl;
 
   const onSubmit = async (data: FieldValues) => {
     try {
@@ -49,12 +48,12 @@ const AddLinkForm = () => {
         content: data?.content as string,
         link: data?.link as string,
       });
-      console.log(res);
       if (res.status === 201) {
         toast({
           title: "Link added",
         });
         reset();
+        router.refresh();
       }
     } catch (error) {
       console.log(error);
@@ -116,10 +115,6 @@ const AddLinkForm = () => {
           </div>
         </DialogContent>
       </Dialog>
-      <Avatar className="mt-4 h-full w-full">
-        <AvatarImage src={`${userImg}`} className="object-cover" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
     </div>
   );
 };

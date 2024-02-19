@@ -7,10 +7,12 @@ type UserReq = {
   username: string;
   email: string;
   authId: string;
+  avatar: string;
 };
 
 export async function POST(NextRequest: NextRequest) {
-  const { username, email, authId } = (await NextRequest.json()) as UserReq;
+  const { username, email, authId, avatar } =
+    (await NextRequest.json()) as UserReq;
 
   if (!username || !email || !authId) {
     return NextResponse.json({ message: "Invalid input data" });
@@ -34,6 +36,7 @@ export async function POST(NextRequest: NextRequest) {
         username,
         email,
         authId,
+        avatar,
       })
       .execute();
     return NextResponse.json(newUser);

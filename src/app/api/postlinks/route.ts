@@ -27,7 +27,7 @@ export async function POST(nextRequest: NextRequest) {
         username,
       })
       .execute();
-    return NextResponse.json(insertLink, { status: 201 }); // Return the result or confirmation
+    return NextResponse.json(insertLink, { status: 201 });
   } catch (error) {
     return NextResponse.json({ message: "Insert failed", details: error });
   }
