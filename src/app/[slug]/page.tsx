@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AddLinkForm from "~/components/AddLinkForm";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { db } from "~/server/db";
 
@@ -33,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {userLinks?.map((link) => (
             <Link
               key={link?.id}
-              className="block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
+              className="glassmorphism block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
               href={`${link?.content}`}
               target="blank"
             >

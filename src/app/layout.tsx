@@ -1,13 +1,20 @@
 import "~/styles/globals.css";
-
-import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Navbar } from "~/components/Navbar";
 import { Toaster } from "~/components/ui/toaster";
+import { Inter } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  display: "swap",
+});
+
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -24,7 +31,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`font-sans ${inter.variable} text-primary `}>
+        <body className={`font-sans ${roboto.className} text-primary `}>
           <Navbar />
           {children}
           <Toaster />

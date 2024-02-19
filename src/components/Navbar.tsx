@@ -7,7 +7,6 @@ import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 export function Navbar() {
   const user = useUser();
   const isSignedIn = user.isSignedIn;
-  console.log(user?.user);
 
   return (
     <header className="flex items-center justify-between border-b px-4 py-2 md:px-8 lg:px-10 xl:px-12">

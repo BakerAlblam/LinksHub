@@ -1,34 +1,57 @@
+import { SignUpButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#21014f] to-[#1a1b2e] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+    <main className="flex min-h-screen w-full flex-col items-center bg-gradient-to-b from-[#21014f] to-[#1a1b2e] text-white">
+      <div className="container mt-8 flex  flex-col items-center gap-12 px-4 py-16">
         <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
+          Links<span className="text-[hsl(280,100%,70%)]">Hub</span>
         </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
+        <div className="mb-8 space-y-6">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            The complete platform for your links
+          </h1>
+          <p className="mx-auto max-w-[600px] text-center text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            Share all of your social media profiles and important links with a
+            beautiful and customizable page.
+          </p>
+          <div className="block w-full rounded-lg bg-white/40 py-4 text-center text-lg font-medium text-white hover:bg-white/20">
+            <SignUpButton />
+          </div>
+        </div>
+        <br className="h-1 w-1 bg-white" />
+        <hr className="h-1 w-full bg-white lg:w-1/2" />
+        <Avatar className="mt-4 h-20 w-20">
+          <AvatarImage src={``} className="object-cover" />
+          <AvatarFallback className="bg-black">{""}</AvatarFallback>
+        </Avatar>
+        <h1 className="items-end text-3xl font-extrabold tracking-tight sm:text-[3rem]">
+          <span className="text-[hsl(280,100%,70%)]">@Johndoe</span>
+        </h1>
+
+        <div className="flex w-full max-w-[850px] flex-col space-y-6 px-12">
           <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
+            className="glassmorphism block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
+            href={`twitter.com`}
+            target="blank"
           >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
+            Twitter
           </Link>
           <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
+            className="glassmorphism block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
+            href={`twitter.com`}
+            target="blank"
           >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
+            Twitter
+          </Link>
+          <Link
+            className="glassmorphism block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
+            href={`twitter.com`}
+            target="blank"
+          >
+            Twitter
           </Link>
         </div>
       </div>
