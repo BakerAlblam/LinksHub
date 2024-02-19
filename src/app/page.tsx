@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 
 export default function HomePage() {
   return (
-    <main className="flex w-full flex-col items-center bg-gradient-to-b from-[#21014f] to-[#1a1b2e] text-white">
+    <main className="flex w-full flex-col items-center overflow-hidden bg-gradient-to-b from-[#21014f] to-[#1a1b2e] text-white">
       <div className="container flex  h-fit flex-col items-center gap-12 px-4 py-20 md:py-12 lg:py-14 xl:py-12">
         <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
           Links<span className="text-[hsl(280,100%,70%)]">Hub</span>
