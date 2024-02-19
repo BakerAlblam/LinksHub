@@ -1,13 +1,20 @@
 "use client";
 import Link from "next/link";
-import { type JSX, type SVGProps } from "react";
+import { useState, type JSX, type SVGProps } from "react";
 import { Input } from "./ui/input";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 export function Navbar() {
   const user = useUser();
   const isSignedIn = user.isSignedIn;
   const username = user?.user?.username;
+  const [search, setSearch] = useState("");
+  const router = useRouter();
+
+  const onSubmit = async () => {
+    router.push(search);
+  };
 
   return (
     <header className="flex items-center justify-between border-b px-4 py-2 md:px-8 lg:px-10 xl:px-12">
@@ -30,8 +37,11 @@ export function Navbar() {
         <div className="relative hidden lg:block">
           <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
           <Input
-            className="pl-8 text-sm"
-            placeholder="Search..."
+            onClick={() => router.push(`/${search}`)}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="pl-8 text-sm text-black"
+            placeholder="Search"
             type="search"
           />
         </div>

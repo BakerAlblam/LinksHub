@@ -10,6 +10,28 @@ type UserReq = {
   avatar: string;
 };
 
+export async function PUT(NextRequest: NextRequest) {
+  const { username, authId, avatar } = (await NextRequest.json()) as UserReq;
+
+  if (!authId) {
+    return NextResponse.json({ message: "Invalid authID" });
+  }
+  try {
+    const req = await db
+      .update(users)
+      .set({
+        username: username,
+        avatar: avatar,
+        authId: authId,
+      })
+      .where(eq(users.authId, authId));
+    return NextResponse.json(req);
+    console.log(req);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function POST(NextRequest: NextRequest) {
   const { username, email, authId, avatar } =
     (await NextRequest.json()) as UserReq;
