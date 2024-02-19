@@ -18,11 +18,11 @@ export default function HomePage() {
             beautiful and customizable page.
           </p>
           <div className="block w-full rounded-lg bg-white/40 py-4 text-center text-lg font-medium text-white hover:bg-white/20">
-            <SignUpButton />
+            <SignUpButton afterSignInUrl="/links" afterSignUpUrl="/links" />
           </div>
         </div>
-        <br className="h-1 w-1 bg-white" />
-        <hr className="h-1 w-full bg-white lg:w-1/2" />
+
+        <hr className="h-1 w-full bg-white" />
         <Avatar className="mt-4 h-20 w-20">
           <AvatarImage src={``} className="object-cover" />
           <AvatarFallback className="bg-black">{""}</AvatarFallback>
