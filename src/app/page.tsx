@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 
 export default function HomePage() {
   return (
-    <div className="max-w min-w-screen flex min-h-screen  flex-col items-center justify-center bg-gradient-to-b from-[#21014f] to-[#1a1b2e] p-4 text-white">
+    <div className="max-w min-w-screen flex min-h-screen  flex-col items-center justify-center bg-gradient-to-b from-[#1b013f] to-[#1a1b2e] p-4 text-white">
       <header className="mb-12 text-center">
         <h1 className="mb-4 text-6xl font-bold">
           Links<span className="text-[hsl(280,100%,70%)]">Hub</span>

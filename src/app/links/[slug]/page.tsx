@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   void sendData();
 
   return (
-    <main className=" min-h-screen flex-col items-center bg-gradient-to-b from-[#21014f] to-[#1a1b2e] text-white">
+    <main className=" min-h-screen flex-col items-center bg-gradient-to-b from-[#1b013f] to-[#1a1b2e] text-white">
       <div className=" flex flex-col items-center gap-12 py-12">
         <Avatar className="mt-4 h-28 w-28">
           <AvatarImage src={`${user?.avatar}`} className="object-cover" />
@@ -67,7 +67,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
               </Link>
             ))
           ) : (
-            <p>no Data</p>
+            <p className="block w-full truncate  rounded-full bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20">
+              No links added
+            </p>
           )}
         </div>
       </div>
