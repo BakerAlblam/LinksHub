@@ -19,7 +19,7 @@ export default function HomePage() {
         </div>
       </header>
       <hr className="mb-6 border-t-2 border-white" />
-      <div className="h-full w-full max-w-lg rounded-lg border-4 border-indigo-500/100 p-2">
+      <div className="h-full w-full max-w-lg rounded-lg border-4 border-indigo-900/100 p-2">
         <div className="mb-6 flex flex-col items-center">
           <Avatar>
             <AvatarImage

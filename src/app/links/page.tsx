@@ -18,10 +18,10 @@ const Page = () => {
   const avatar = user?.user?.imageUrl;
 
   useEffect(() => {
-    if (encodedUsername != null) {
-      router.push(`/links/${decodedUsername}`);
+    if (authId != null) {
+      router.push(`/links/${authId}`);
     }
-  }, [decodedUsername, encodedUsername, router]);
+  }, [decodedUsername, encodedUsername, router, authId]);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#21014f] to-[#1a1b2e] text-white">
-      <div className="container flex flex-col items-center gap-12 px-4 py-16 ">
+      <div className="flex flex-col items-center gap-12 py-12">
         <Avatar className="mt-4 h-20 w-20 ">
           <AvatarImage src={`${user?.avatar}`} className="object-cover" />
           <AvatarFallback className="bg-black">
@@ -28,11 +28,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <span className="text-[hsl(280,100%,70%)]">@{user?.username}</span>
         </h1>
 
-        <div className="flex w-full flex-col space-y-6 px-12">
+        <div className="flex w-full flex-col space-y-6 px-4  lg:w-2/3">
+          {" "}
           {userLinks?.map((link) => (
             <Link
               key={link?.id}
-              className="glassmorphism block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
+              className="block w-full truncate  rounded-full bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
               href={`${link?.content}`}
               target="blank"
             >
