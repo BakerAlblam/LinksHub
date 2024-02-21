@@ -22,6 +22,7 @@ export function Navbar() {
         className="flex items-center"
         href={isSignedIn ? `/links/${username}` : `/`}
       >
+        <FilmIcon className="h-6 w-6" color="purple" />
         <span className="ml-2 text-lg font-semibold text-purple-800">
           LinkHub
         </span>
