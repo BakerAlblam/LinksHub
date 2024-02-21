@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             userLinks.map((link) => (
               <Link
                 key={link?.id}
-                className="block w-full rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
+                className="block w-full truncate rounded-lg bg-white/10 py-4 text-center text-lg font-medium text-white hover:bg-white/20"
                 href={`${link?.content}`}
                 target="_blank"
               >
