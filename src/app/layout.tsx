@@ -1,7 +1,7 @@
 import "~/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "~/components/ui/toaster";
-
+import { Analytics } from "@vercel/analytics/react";
 import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
@@ -26,6 +26,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={`font-sans ${roboto.className} text-primary `}>
           {children}
+          <Analytics />
           <Toaster />
         </body>
       </html>
