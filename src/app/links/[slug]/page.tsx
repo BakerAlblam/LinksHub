@@ -4,12 +4,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { db } from "~/server/db";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import axios from "axios";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const sesh = await currentUser();
-  const username = sesh?.username;
-  const imgUrl = sesh?.imageUrl;
   const user = await db.query.users.findFirst({
     where: (user, { eq }) => eq(user.authId, params.slug),
   });
@@ -20,26 +17,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
   const userId = user?.authId!;
-  const authId = user?.authId;
 
   const userLinks = await db.query.links.findMany({
     where: (link, { eq }) => eq(link.userId, userId),
   });
-
-  const sendData = async () => {
-    try {
-      const res = await axios.put(`http://localhost:3000/api/users`, {
-        username,
-        authId,
-        avatar: imgUrl,
-      });
-      console.log(res);
-    } catch (error) {
-      // Handle errors here
-      console.error("Error:", error);
-    }
-  };
-  void sendData();
 
   return (
     <main className=" min-h-screen flex-col items-center bg-gradient-to-b from-[#1b013f] to-[#1a1b2e] text-white">

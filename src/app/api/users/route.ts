@@ -25,8 +25,7 @@ export async function PUT(NextRequest: NextRequest) {
         authId: authId,
       })
       .where(eq(users.authId, authId));
-    return NextResponse.json(req);
-    console.log(req);
+    return NextResponse.json({ message: "updated", req });
   } catch (error) {
     console.log(error);
   }

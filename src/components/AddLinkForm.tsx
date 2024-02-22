@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -22,6 +22,7 @@ type FormData = {
   content: string;
   link: string;
   username: string;
+  authId: string;
 };
 
 const AddLinkForm = () => {
@@ -37,6 +38,24 @@ const AddLinkForm = () => {
   const data = user;
   const userId = data?.user?.id;
   const username = data?.user?.username;
+  const imgUrl = data?.user?.imageUrl;
+
+  useEffect(() => {
+    const sendData = async () => {
+      try {
+        const res = await axios.put(`http://localhost:3000/api/users`, {
+          username,
+          authId: userId,
+          avatar: imgUrl,
+        });
+        console.log(res, username, userId, imgUrl);
+      } catch (error) {
+        // Handle errors here
+        console.error("Error:", error);
+      }
+    };
+    void sendData();
+  }, [imgUrl, userId, username]);
 
   const onSubmit = async (data: FieldValues) => {
     try {
