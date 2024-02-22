@@ -47,7 +47,11 @@ export async function POST(NextRequest: NextRequest) {
       return NextResponse.json({ message: "User already in DB" });
     }
   } catch (error) {
-    return NextResponse.json(error);
+    console.error("Error updating user:", error);
+    return NextResponse.json({
+      message: "Error updating user",
+      details: error,
+    });
   }
 
   try {

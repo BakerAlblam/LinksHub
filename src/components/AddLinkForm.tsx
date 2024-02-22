@@ -43,7 +43,7 @@ const AddLinkForm = () => {
   useEffect(() => {
     const sendData = async () => {
       try {
-        const res = await axios.put(`http://localhost:3000/api/users`, {
+        const res = await axios.put(`/api/users`, {
           username,
           authId: userId,
           avatar: imgUrl,
@@ -56,20 +56,6 @@ const AddLinkForm = () => {
     };
     void sendData();
   }, [imgUrl, userId, username]);
-
-  const sendData = async () => {
-    try {
-      const res = await axios.put(`http://localhost:3000/api/users`, {
-        username,
-        authId: userId,
-        avatar: imgUrl,
-      });
-      console.log(res, username, userId, imgUrl);
-    } catch (error) {
-      // Handle errors here
-      console.error("Error:", error);
-    }
-  };
 
   const onSubmit = async (data: FieldValues) => {
     try {
@@ -94,9 +80,6 @@ const AddLinkForm = () => {
 
   return (
     <div>
-      <button onClick={sendData} className="bg-black">
-        send
-      </button>
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="secondary">Add Link</Button>
