@@ -43,12 +43,11 @@ const AddLinkForm = () => {
   useEffect(() => {
     const sendData = async () => {
       try {
-        const res = await axios.put(`/api/users`, {
+        await axios.put(`/api/users`, {
           username,
           authId: userId,
           avatar: imgUrl,
         });
-        console.log(res, username, userId, imgUrl);
       } catch (error) {
         // Handle errors here
         console.error("Error:", error);

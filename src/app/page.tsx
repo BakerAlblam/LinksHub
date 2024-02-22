@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 
 export default async function HomePage() {
   const sesh = await currentUser();
-  console.log(sesh);
+
   if (sesh) {
     redirect(`/links/${sesh?.id}`);
   }
@@ -16,7 +16,7 @@ export default async function HomePage() {
         <h1 className="mb-4 text-6xl font-bold">
           Links<span className="text-[hsl(280,100%,70%)]">Hub</span>
         </h1>
-        <h2 className="mb-4 text-3xl">The complete platform for your links</h2>
+        <h2 className="mb-4 text-2xl">The complete platform for your links</h2>
         <p className="mb-6 text-sm">
           Share all of your social media profiles and important links with a
           beautiful and customizable page.
@@ -26,7 +26,7 @@ export default async function HomePage() {
         </div>
       </header>
       <hr className="mb-6 border-t-2 border-white" />
-      <div className="h-full w-full max-w-lg rounded-lg border-4 border-indigo-900/100 p-2">
+      <div className="h-full w-full max-w-lg rounded-lg border-4 border-indigo-900 p-2">
         <div className="mb-6 flex flex-col items-center">
           <Avatar>
             <AvatarImage

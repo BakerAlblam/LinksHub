@@ -7,7 +7,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const user = await db.query.users.findFirst({
     where: (user, { eq }) => eq(user.username, params.slug),
   });
-  console.log(params.slug);
 
   // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
   const userId = user?.authId!;
