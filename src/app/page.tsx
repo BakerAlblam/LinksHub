@@ -1,8 +1,15 @@
 import { SignUpButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { currentUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const sesh = await currentUser();
+  console.log(sesh);
+  if (sesh) {
+    redirect(`/links/${sesh?.id}`);
+  }
   return (
     <div className="max-w min-w-screen flex min-h-screen  flex-col items-center justify-center bg-gradient-to-b from-[#1b013f] to-[#1a1b2e] p-4 text-white">
       <header className="mb-12 text-center">

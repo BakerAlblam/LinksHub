@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   });
 
   if (sesh?.id !== params.slug) {
-    redirect("/links");
+    redirect(`/links/${sesh?.id}`);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
@@ -28,11 +28,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const sendData = async () => {
     try {
-      await axios.put(`http://localhost:3000/api/users`, {
+      const res = await axios.put(`http://localhost:3000/api/users`, {
         username,
         authId,
         avatar: imgUrl,
       });
+      console.log(res);
     } catch (error) {
       // Handle errors here
       console.error("Error:", error);
