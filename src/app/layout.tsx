@@ -1,6 +1,5 @@
 import "~/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Navbar } from "~/components/Navbar";
 import { Toaster } from "~/components/ui/toaster";
 
 import { Roboto } from "next/font/google";
@@ -26,7 +25,6 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`font-sans ${roboto.className} text-primary `}>
-          <Navbar />
           {children}
           <Toaster />
         </body>
