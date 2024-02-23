@@ -8,10 +8,12 @@ type UserReq = {
   email: string;
   authId: string;
   avatar: string;
+  background: string;
 };
 
 export async function PUT(NextRequest: NextRequest) {
-  const { username, authId, avatar } = (await NextRequest.json()) as UserReq;
+  const { username, authId, avatar, background } =
+    (await NextRequest.json()) as UserReq;
 
   if (!authId) {
     return NextResponse.json({ message: "Invalid authID" });
@@ -23,6 +25,7 @@ export async function PUT(NextRequest: NextRequest) {
         username: username,
         avatar: avatar,
         authId: authId,
+        background,
       })
       .where(eq(users.authId, authId));
     return NextResponse.json({ message: "updated", req });

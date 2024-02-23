@@ -25,6 +25,7 @@ export const users = createTable("users", {
   email: text("email"),
   authId: text("authId"),
   avatar: varchar("avatar", { length: 256 }),
+  background: varchar("background", { length: 256 }).default("default"),
   createdAt: timestamp("created_at")
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
