@@ -89,15 +89,16 @@ const Backgrounds = ({ authId }: { authId: string }) => {
       <DialogTrigger asChild>
         <Settings className="cursor-pointer text-purple-800" />
       </DialogTrigger>
+
       <DialogContent
         className="mx-2 text-black"
-        style={{ height: "450px", width: "1000px" }}
+        style={{ height: "400px", maxWidth: "1000px" }}
       >
         <DialogHeader>
           <DialogTitle>Choose your background</DialogTitle>
         </DialogHeader>
 
-        <form style={{ height: "250px", width: "900px" }}>
+        <form className="mx-auto max-w-screen-lg">
           <div className="flex w-full items-center space-x-2">
             <div className="flex-col-1 flex h-full w-full gap-1">
               {bgs.map((bg) => (
@@ -105,7 +106,11 @@ const Backgrounds = ({ authId }: { authId: string }) => {
                   <img
                     src={bg?.src}
                     className="w-full cursor-pointer"
-                    style={{ height: "250px", width: "400px" }} // Adjust the height and width as needed
+                    style={{
+                      height: "300px",
+                      width: "500px",
+                      aspectRatio: "4/2",
+                    }} // Maintain a specific aspect ratio
                     onClick={() => handleImageClick(bg.name)}
                   />
                 </div>

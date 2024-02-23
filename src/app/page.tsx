@@ -1,8 +1,10 @@
-import { SignUpButton } from "@clerk/nextjs";
+import { SignInButton, SignUpButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
+import Loading from "~/components/Loading";
 
 export default async function HomePage() {
   const sesh = await currentUser();
@@ -21,9 +23,18 @@ export default async function HomePage() {
           Share all of your social media profiles and important links with a
           beautiful and customizable page.
         </p>
-        <div className="block  rounded-lg bg-white/40 py-4 text-center text-lg font-medium text-white hover:bg-white/20">
-          <SignUpButton afterSignInUrl="/links" afterSignUpUrl="/links" />
-        </div>
+        <Suspense fallback={<Loading />}>
+          <div className="space-y-3">
+            <div className="block  rounded-lg bg-white/40 py-2 text-center text-lg font-medium text-white hover:bg-white/20">
+              <SignUpButton afterSignInUrl="/links" afterSignUpUrl="/links" />
+            </div>
+
+            <p>Or</p>
+            <div className="block rounded-lg bg-white/40 py-2 text-center text-lg font-medium text-white hover:bg-white/20">
+              <SignInButton afterSignInUrl="/links" afterSignUpUrl="/links" />
+            </div>
+          </div>
+        </Suspense>
       </header>
       <hr className="mb-6 border-t-2 border-white" />
       <div className="h-full w-full max-w-lg rounded-lg border-4 border-indigo-900 p-2">
