@@ -42,27 +42,23 @@ const bgs = [
     src: "/assets/DragonScales.png",
   },
   {
-    id: "4",
+    id: "5",
     name: "WaveyFingerprint",
     src: "/assets/WaveyFingerprint.png",
   },
+
   {
     id: "6",
-    name: "WinterySunburst",
-    src: "/assets/WinterySunburst.jpg",
-  },
-  {
-    id: "7",
     name: "GeometricIntersection",
     src: "/assets/GeometricIntersection.png",
   },
   {
-    id: "8",
+    id: "7",
     name: "BullseyeGradient",
     src: "/assets/BullseyeGradient.png",
   },
   {
-    id: "9",
+    id: "8",
     name: "ColorfulStingrays",
     src: "/assets/ColorfulStingrays.png",
   },
