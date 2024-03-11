@@ -122,13 +122,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
       style={backgroundStyle}
     >
       <div className=" flex flex-col items-center gap-8 py-12">
-        <Link
-          href={`/${user?.username}`}
-          className="block truncate rounded-full bg-white/10 px-4 py-1 text-center text-sm  text-white hover:bg-white/20"
-        >
-          Your live URL:{" "}
-          <span className="text-large ml-1 text-[hsl(280,100%,70%)]">{`${user?.username}`}</span>
-        </Link>
         <Avatar className="mt-4 h-28 w-28">
           <AvatarImage src={`${sesh?.imageUrl}`} className="object-cover" />
           <AvatarFallback className="bg-black">
